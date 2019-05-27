@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bulma/bulma.sass';
+
+//Import Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
+
+//Define Color Palette
+$turquoise: #44ddd0;
+$green: #27d7a1;
+$light-green: #45f69e;
+$light: #f8f8f8;
+$dark-green: #006450;
+
+//Update Bulma global variables
+$family-sans-serif: "Nunito", sans-serif;
+$primary: $green;
+
+$link: $light-green;
+
+//Update Bulma component variables
+$control-border-width: 2px;
+$import-border-color: transparent;
+$input-shadow: none;
+
+//Custom global styles
+
+html {
+  background: linear-gradient(to right top, $turquoise, $green);
+}
+
+html, body {
+  height: 100%;
+}
