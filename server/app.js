@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 const { mongoose } = require('./db/mongoose');
@@ -10,19 +11,20 @@ const { List, Task } = require('./db/models/index.js');
 
 //Load middleware
 app.use(bodyParser.json());
+app.use(cors());
 
 /* Route Handlers */
 
 /* List Routes */
 // GET All Lists
-app.get('/lists', (req, res) => {
+app.get('/lists', (req, res, next) => {
     //Return Array of lists in database
     List.find({}).then((lists) => {
         res.send(lists);
     });
 });
 // GET Single List @id
-app.get('/lists/:id', (req, res) => {
+app.get('/lists/:id', (req, res, next) => {
     //Return Array of lists in database
     List.findOne({
         _id: req.params.id
@@ -31,7 +33,7 @@ app.get('/lists/:id', (req, res) => {
     });
 });
 // POST Create New List @id
-app.post('/lists', (req, res) => {
+app.post('/lists', (req, res, next) => {
     //Create a new List and return new list document back (incl id)
     //List information will be passed in via JSON request body
     let title = req.body.title; //uses body-parser
@@ -45,7 +47,7 @@ app.post('/lists', (req, res) => {
     })
 });
 // PATCH Update List @id
-app.patch('/lists/:id', (req, res) => {
+app.patch('/lists/:id', (req, res, next) => {
     //Update specific list with id with new values specified in req
     List.findOneAndUpdate({ _id: req.params.id }, {
         $set: req.body
@@ -54,7 +56,7 @@ app.patch('/lists/:id', (req, res) => {
     });
 });
 // DELETE List @id
-app.delete('/lists/:id', (req, res) => {
+app.delete('/lists/:id', (req, res, next) => {
     //Delete specific list with id
     List.findOneAndRemove({
         _id: req.params.id
@@ -65,7 +67,7 @@ app.delete('/lists/:id', (req, res) => {
 
 /* Task Routes */
 // GET All Tasks @listId
-app.get('/lists/:listId/tasks', (req, res) => {
+app.get('/lists/:listId/tasks', (req, res, next) => {
    //We want to return all tasks that belong to a specific list
     Task.find({
         _listId: req.params.listId
@@ -74,7 +76,7 @@ app.get('/lists/:listId/tasks', (req, res) => {
     });
 });
 // GET Single Task @listId @taskId
-app.get('/lists/:listId/tasks/:taskId', (req, res) => {
+app.get('/lists/:listId/tasks/:taskId', (req, res, next) => {
     //Return Array of lists in database
     Task.findOne({
         _id: req.params.taskId,
@@ -84,7 +86,7 @@ app.get('/lists/:listId/tasks/:taskId', (req, res) => {
     });
 });
 // POST Create New Task @listId @taskId
-app.post('/lists/:listId/tasks', (req, res) => {
+app.post('/lists/:listId/tasks', (req, res, next) => {
     let newTask = new Task({
        title: req.body.title,
         _listId: req.params.listId
@@ -94,7 +96,7 @@ app.post('/lists/:listId/tasks', (req, res) => {
     });
 });
 // PATCH Update Task @listId @taskId
-app.patch('/lists/:listId/tasks/:taskId', (req, res) => {
+app.patch('/lists/:listId/tasks/:taskId', (req, res, next) => {
     //Update specific list with id with new values specified in req
     Task.findOneAndUpdate({
         _id: req.params.taskId,
@@ -106,7 +108,7 @@ app.patch('/lists/:listId/tasks/:taskId', (req, res) => {
     });
 });
 // DELETE Task @listId @taskId
-app.delete('/lists/:listId/tasks/:taskId', (req, res) => {
+app.delete('/lists/:listId/tasks/:taskId', (req, res, next) => {
     //Delete specific list with id
     Task.findOneAndRemove({
         _id: req.params.taskId,
