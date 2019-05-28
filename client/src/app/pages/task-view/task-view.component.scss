@@ -72,24 +72,44 @@
 }
 
 .task {
+  display: flex;
   background: white;
   padding: 15px 20px;
   border-radius: 5px;
   margin-top: 10px;
 
-
+  align-items: center;
 
   cursor: pointer;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
+
   &:hover {
     box-shadow: 0 0 0 5px #eeeeee;
+
+    .task-buttons {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
   &:active {
     transform: scale(0.95);
   }
   &.completed {
-    text-decoration: line-through;
     opacity: 0.6;
+
+    .task-text {
+      text-decoration: line-through;
+    }
+  }
+
+  .task-text {
+    flex-grow: 1;
+  }
+
+  .task-buttons {
+    transition: opacity 0.2s, transform 0.2s;
+    opacity: 0;
+    transform: scale(0.85);
   }
 }
 

@@ -10,6 +10,7 @@ import { NewListComponent } from './pages/new-list/new-list.component';
 import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { EditListComponent } from './pages/edit-list/edit-list.component';
+import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EditListComponent } from './pages/edit-list/edit-list.component';
     NewListComponent,
     NewTaskComponent,
     LoginPageComponent,
-    EditListComponent
+    EditListComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,

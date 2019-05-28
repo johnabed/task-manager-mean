@@ -48,7 +48,21 @@
 
         <!-- Task Elements -->
         <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{ 'completed': task.completed }">
-          <p>{{task.title}}</p>
+          <div class="task-text">
+            <p>{{task.title}}</p>
+          </div>
+          <div class="task-buttons">
+            <button class="button is-small" [routerLink]="['/lists', selectedListId, 'edit-task', task._id]">
+              <span class="icon">
+                <i class="fas fa-edit"></i>
+              </span>
+            </button>
+            <button class="button is-danger is-small" (click)="onDeleteTaskClick(task._id)" style="margin-left: 10px;">
+              <span class="icon">
+                <i class="fas fa-trash"></i>
+              </span>
+            </button>
+          </div>
         </div>
 
         <h3 class="empty-state-text" *ngIf="tasks.length === 0">Click the + button to create a new task.</h3>

@@ -49,4 +49,12 @@ export class TaskViewComponent implements OnInit {
       this.router.navigate(['/lists']);
     })
   }
+
+  onDeleteTaskClick(id: string) {
+    this.taskService.deleteTask(this.selectedListId, id).subscribe((task: Task) => {
+      //Produces task arr without that task and then assigns to task arr
+      this.tasks = this.tasks.filter(val => val._id !== id);
+      console.log(task);
+    })
+  }
 }
