@@ -13,7 +13,6 @@ export class TaskViewComponent implements OnInit {
 
   lists: List[];
   tasks: Task[];
-  listSelected: boolean = false;
 
   constructor(private taskService: TaskService, private route: ActivatedRoute) { }
 
@@ -21,7 +20,6 @@ export class TaskViewComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.taskService.getTasks(params.listId).subscribe((tasks: Task[]) => {
           this.tasks = tasks;
-          this.listSelected = true; //Used to allow user to now add tasks
         })
     });
 

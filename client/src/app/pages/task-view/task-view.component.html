@@ -17,19 +17,25 @@
     </div>
 
     <div class="task-list-container has-background-light">
-      <h1 class="title has-text-primary">
-        Tasks
-      </h1>
+      <div *ngIf="tasks">
+        <h1 class="title has-text-primary">
+          Tasks
+        </h1>
 
-      <!-- Task Elements -->
-      <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{ 'completed': task.completed }">
-        <p>{{task.title}}</p>
+        <!-- Task Elements -->
+        <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{ 'completed': task.completed }">
+          <p>{{task.title}}</p>
+        </div>
+
+        <button class="button circle-add-button is-primary" routerLink="./new-task">
+          <i class="fas fa-plus"></i>
+        </button>
       </div>
-
-      <button class="button circle-add-button is-primary" routerLink="./new-task" [disabled]="!listSelected">
-        <img src="../../../assets/plus-icon.svg">
-      </button>
+      <div>
+        Select a List to get started!
+      </div>
     </div>
+
 
   </div>
 </div>
