@@ -19,6 +19,16 @@ export class TaskService {
     return this.webRequestService.post('lists', { title });
   }
 
+  updateList(id: string, title: string) {
+    //Send web request to create List
+    //returns an Observable to subscribe to
+    return this.webRequestService.patch(`lists/${id}`, { title });
+  }
+
+  deleteList(id: string) {
+    return this.webRequestService.delete(`lists/${id}`);
+  }
+
   getTasks(listId: string) {
     return this.webRequestService.get(`lists/${listId}/tasks`)
   }
