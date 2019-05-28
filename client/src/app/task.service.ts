@@ -13,4 +13,12 @@ export class TaskService {
     //returns an Observable to subscribe to
     return this.webRequestService.post('lists', { title });
   }
+
+  getLists() {
+    return this.webRequestService.get('lists');
+  }
+
+  getTasks(listId: string) {
+    return this.webRequestService.get(`lists/${listId}/tasks`)
+  }
 }
