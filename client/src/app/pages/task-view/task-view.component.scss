@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
 .task-manager-container {
-  display:flex;
+  display: flex;
   width: 100%;
   height: 100%;
   max-width: 750px;
@@ -19,6 +19,7 @@
 }
 
 .task-list-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -55,8 +56,8 @@
     }
 
     &.is-active {
-      background-color: #cff8ef;
-      color: $dark-green;
+      background-color: $light-purple;
+      color: $dark-purple;
     }
   }
 }
@@ -67,24 +68,30 @@
   border-radius: 5px;
   margin-top: 10px;
 
-  &:not(.complete) {
-    cursor: pointer;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
 
 
-    &:hover {
-      box-shadow: 0 0 0 5px #eeeeee;
-    }
-
-    &:active {
-      transform: scale(0.95);
-    }
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  &:hover {
+    box-shadow: 0 0 0 5px #eeeeee;
   }
-
-  &.complete {
+  &:active {
+    transform: scale(0.95);
+  }
+  &.completed {
     text-decoration: line-through;
     opacity: 0.6;
   }
+}
+
+.circle-add-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  height: 35px;
+  width: 35px;
+  background: $primary;
+  border-radius: 50%;
 }
 
 

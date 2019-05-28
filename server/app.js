@@ -52,7 +52,7 @@ app.patch('/lists/:id', (req, res, next) => {
     List.findOneAndUpdate({ _id: req.params.id }, {
         $set: req.body
     }).then(() => {
-        res.sendStatus(200);
+        res.send({message: 'PATCH Success'});
     });
 });
 // DELETE List @id
@@ -104,7 +104,7 @@ app.patch('/lists/:listId/tasks/:taskId', (req, res, next) => {
     }, {
         $set: req.body
     }).then(() => {
-        res.sendStatus(200);
+        res.send({message: 'PATCH Success'});
     });
 });
 // DELETE Task @listId @taskId

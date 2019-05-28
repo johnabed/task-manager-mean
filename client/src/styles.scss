@@ -1,31 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/bulma/bulma.sass';
-
 //Import Fonts
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
 
 //Define Color Palette
-$turquoise: #44ddd0;
-$green: #27d7a1;
-$light-green: #45f69e;
+$amethyst: #9966cc;
+$purple: #7c49d7;
+$light-purple: #beb2f6;
 $light: #f8f8f8;
-$dark-green: #006450;
+$dark-purple: #492464;
 
 //Update Bulma global variables
 $family-sans-serif: "Nunito", sans-serif;
-$primary: $green;
+$primary: $purple;
 
-$link: $light-green; //todo: Not registering on frontend
+$link: $light-purple; //todo: Not registering on frontend
 
 //Update Bulma component variables
 $control-border-width: 2px;
 $import-border-color: transparent;
 $input-shadow: none;
 
+
+@import '../node_modules/bulma/bulma.sass';
+
 //Custom global styles
 
 html {
-  background: linear-gradient(to right top, $turquoise, $green);
+  background: linear-gradient(to right top, $amethyst, $purple);
 }
 
 html, body {
@@ -39,3 +40,20 @@ html, body {
   width: 100%;
   height: 100%;
 }
+
+.modal-box {
+  min-height: 150px;
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  padding: 21px;
+  border-radius: 8px;
+}
+
+.title {
+  font-family: 'Lato', serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
