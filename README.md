@@ -1,7 +1,7 @@
 # MEAN Task Manager Application
 Task manager application created using the MEAN stack (Angular, NodeJS with Express and MongoDB).
 
-![Preview of application design](mockup.png)
+![Preview of application design](mockup.gif)
 
 ### Functionality
   - Create new Lists to organize Tasks into categories
