@@ -76,7 +76,7 @@
   background: white;
   padding: 15px 20px;
   border-radius: 5px;
-  margin-top: 10px;
+  margin: 10px;
 
   align-items: center;
 
@@ -129,4 +129,8 @@
   text-align: center;
 }
 
-
+.scrollable-area {
+  overflow-y: auto;
+  max-height: 360px;
+  margin-bottom: 20px;
+}

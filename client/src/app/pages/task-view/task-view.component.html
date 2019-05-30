@@ -1,21 +1,23 @@
 <div class="centered-content">
   <div class="task-manager-container">
 
+    <!-- LISTS -->
     <div class="sidebar has-background-white">
       <h1 class="title has-text-primary">
         Lists
       </h1>
 
-      <div class="list-menu">
+      <div class="list-menu scrollable-area">
         <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists',list._id]" routerLinkActive="is-active">
           <p>{{list.title}}</p>
         </a>
-
       </div>
 
       <button class="button is-primary has-text-white" routerLink="/new-list">+ New List</button>
+
     </div>
 
+    <!-- TASKS -->
     <div class="task-list-container has-background-light">
       <div *ngIf="tasks">
 
@@ -47,21 +49,23 @@
         </div>
 
         <!-- Task Elements -->
-        <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{ 'completed': task.completed }">
-          <div class="task-text">
-            <p>{{task.title}}</p>
-          </div>
-          <div class="task-buttons">
-            <button class="button is-small" [routerLink]="['/lists', selectedListId, 'edit-task', task._id]">
+        <div class="scrollable-area">
+          <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{ 'completed': task.completed }">
+            <div class="task-text">
+              <p>{{task.title}}</p>
+            </div>
+            <div class="task-buttons">
+              <button class="button is-small" [routerLink]="['/lists', selectedListId, 'edit-task', task._id]">
               <span class="icon">
                 <i class="fas fa-edit"></i>
               </span>
-            </button>
-            <button class="button is-danger is-small" (click)="onDeleteTaskClick(task._id)" style="margin-left: 10px;">
+              </button>
+              <button class="button is-danger is-small" (click)="onDeleteTaskClick(task._id)" style="margin-left: 10px;">
               <span class="icon">
                 <i class="fas fa-trash"></i>
               </span>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
 

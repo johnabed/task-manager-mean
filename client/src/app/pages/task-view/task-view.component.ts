@@ -57,4 +57,5 @@ export class TaskViewComponent implements OnInit {
       console.log(task);
     })
   }
+
 }
